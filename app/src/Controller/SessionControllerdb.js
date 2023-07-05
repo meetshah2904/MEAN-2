@@ -18,7 +18,7 @@ module.exports.login = async function (req, res) {
     if (user && user.password == password) {
         // token = parseInt(Math.random() * 1000)
         // user.token = token
-        token = jwt.sign({ "authId":user._id,"authority":"user"},SEC_KEY,{expiresIn:"60s"})
+        token = jwt.sign({ "authId":user._id,"authority":"user"},SEC_KEY,{expiresIn:"1d"})
         console.log("Token:- "+token);
         res.json({ data: user, msg: "Login done", rcode: 200 })
     } else {
